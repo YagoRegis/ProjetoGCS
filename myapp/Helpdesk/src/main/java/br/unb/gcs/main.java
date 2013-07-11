@@ -23,7 +23,7 @@ public class main {
 		//usuarioDAO.excluir("andrecruz");
 		//usuarioDAO.obterEspecifico("andre");
 		
-		Chamado chamado = new Chamado(1,"25-07-2013","25-07-2013", "Conserto de uma parede", usuario, usuario, tipoChamado, "forum", 123);
+		Chamado chamado = new Chamado(3,"25-07-2013","25-07-2013", "Conserto do quadro branco", usuario, usuario, tipoChamado, "campus", 123);
 		ChamadoDAO chamadoDAO;
 		chamadoDAO = ChamadoDAO.getInstance();
 		chamadoDAO.incluir(chamado);

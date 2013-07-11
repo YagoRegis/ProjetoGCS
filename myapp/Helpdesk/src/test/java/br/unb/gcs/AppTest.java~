@@ -41,7 +41,7 @@ public class AppTest
     public void testApp()
     {
  	        Usuario usuario = new Usuario("lmatos","102030","Teste 123","teste@gmail.com","09/0000001");		
-		assertNotNull(usuario);
+		assertNotNull(usuario)
 		assertEquals("lmatos", usuario.getLogin());
 		assertEquals("102030", usuario.getSenha());
 		assertEquals("Teste 123", usuario.getNome());
@@ -68,4 +68,9 @@ public class AppTest
 		chamado.setPatrimonio(2939934);
     }
 
+    public void testApp3()
+    {
+ 	        ConnectionFactory connectionfactory = new ConnectionFactory();		
+		assertNotNull(connectionfactory.getConnection());
+    }
 }
