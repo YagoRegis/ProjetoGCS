@@ -1,0 +1,43 @@
+package br.unb.gcs.model;
+import org.joda.time.DateTime;
+
+public class Solucao {
+
+	private int id;
+	private Chamado chamado;
+	private String descricao;
+	private DateTime data;
+	
+	public Solucao(int id, Chamado chamado, String descricao, DateTime data) {
+		this.id = id;
+		this.setChamado(chamado);
+		this.descricao = descricao;
+		this.data = data;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	public DateTime getData() {
+		return data;
+	}
+	public void setData(DateTime data) {
+		this.data = data;
+	}
+	public Chamado getChamado() {
+		return chamado;
+	}
+	public void setChamado(Chamado chamado) {
+		this.chamado = chamado;
+	}
+	
+	
+}

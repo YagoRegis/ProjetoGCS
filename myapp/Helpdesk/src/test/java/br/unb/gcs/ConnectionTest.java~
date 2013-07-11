@@ -1,0 +1,17 @@
+package br.unb.gcs;
+
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+import utils.ConnectionFactory;
+
+public class ConnectionTest {
+
+	@Test
+	public void test() {
+		ConnectionFactory connectionfactory = new ConnectionFactory();		
+		assertNotNull(connectionfactory.getConnection());
+	}
+
+}

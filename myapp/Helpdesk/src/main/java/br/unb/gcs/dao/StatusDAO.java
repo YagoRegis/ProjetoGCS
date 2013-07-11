@@ -1,0 +1,60 @@
+package main.java.br.unb.gcs.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import main.java.br.unb.gcs.model.Status;
+import main.java.br.unb.gcs.utils.ConnectionFactory;
+
+public class StatusDAO {
+	private static StatusDAO instance;
+	private StatusDAO(){
+	}
+	public static StatusDAO getInstance(){
+		if(instance == null)
+			instance = new StatusDAO();
+		return instance;
+	}
+
+	public void incluir(String nome) {
+		this.updateQuery("INSERT INTO " +
+					"status (descricao) VALUES (" +
+					"\"" + nome + "\"); "
+				);
+
+	}	
+	
+	public void obterEspecifico(String nome) {
+		this.updateQuery("SELECT * FROM status WHERE descricao =\""+nome+"\";");
+	}
+
+	public void alterar(Status status)  {			
+		this.updateQuery("UPDATE status SET " +				
+				"matricula = \"" + status.getNome() + "\""+
+				" WHERE " +
+				"cod = \"" + status.getId() + "\";"
+				);
+	}
+
+	public void excluir(long id)  {
+		this.updateQuery("DELETE FROM status WHERE " +
+				"cod = \"" + id + "\";"
+				);
+	}
+
+	public void updateQuery(String message) {
+		Connection connection =  ConnectionFactory.getConnection();
+		PreparedStatement preparedStatement;
+		try {
+			preparedStatement = connection.prepareStatement(message);
+			preparedStatement.execute();		
+			preparedStatement.close();
+			connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

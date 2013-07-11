@@ -1,0 +1,58 @@
+package main.java.br.unb.gcs.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import main.java.br.unb.gcs.model.TipoChamado;
+import main.java.br.unb.gcs.utils.ConnectionFactory;
+
+public class TipoChamadoDAO {
+	private static TipoChamadoDAO instance;
+	private TipoChamadoDAO(){
+	}
+	public static TipoChamadoDAO getInstance(){
+		if(instance == null)
+			instance = new TipoChamadoDAO();
+		return instance;
+	}
+
+	public void incluir(String descricao) {
+		this.updateQuery("INSERT INTO " +
+					"tipoChamado (descricao) VALUES (" +
+					"\"" + descricao + "\"); "
+				);
+	}	
+	
+	public void obterEspecifico(String descricao) {
+		this.updateQuery("SELECT * FROM tipoChamado WHERE descricao =\""+descricao+"\";");
+	}
+
+	public void alterar(TipoChamado tipoChamado)  {			
+		this.updateQuery("UPDATE tipoChamado SET " +				
+				"matricula = \"" + tipoChamado.getDescricao() + "\""+
+				" WHERE " +
+				"cod = \"" + tipoChamado.getId() + "\";"
+				);
+	}
+
+	public void excluir(long id)  {
+		this.updateQuery("DELETE FROM tipoChamado WHERE " +
+				"cod = \"" + id + "\";"
+				);
+	}
+
+	public void updateQuery(String message){
+		Connection connection =  ConnectionFactory.getConnection();
+		PreparedStatement preparedStatement;
+		try {
+			preparedStatement = connection.prepareStatement(message);
+			preparedStatement.execute();		
+			preparedStatement.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+}

@@ -1,0 +1,25 @@
+package control;
+
+import model.TipoChamado;
+import dao.TipoChamadoDAO;
+
+public class TipoChamadoCtrl {
+	private static TipoChamadoCtrl instance;
+
+	public void inserir(String descricao) {
+		TipoChamadoDAO.getInstance().incluir(descricao);
+	}
+
+	public void alterar(TipoChamado tipoChamado) {
+		TipoChamadoDAO.getInstance().alterar(tipoChamado);
+	}
+
+	public void excluir(long id) {
+		TipoChamadoDAO.getInstance().excluir(id);
+	}
+	public static TipoChamadoCtrl getInstance() {
+		if(instance == null)
+			instance = new TipoChamadoCtrl();
+		return instance;
+	}
+}

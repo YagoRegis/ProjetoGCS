@@ -1,0 +1,21 @@
+package br.unb.gcs;
+
+import static org.junit.Assert.*;
+
+import model.TipoChamado;
+
+import org.junit.Test;
+
+public class TipoChamadoTest {
+
+	@Test
+	public void newTipo_chamado(){
+		TipoChamado tipo_chamado = new TipoChamado(1,"Tipo chamado Teste");		
+		
+		assertNotNull(tipo_chamado);
+		assertEquals(1, tipo_chamado.getId());
+		assertEquals("Tipo chamado Teste", tipo_chamado.getDescricao());
+
+	}
+
+}

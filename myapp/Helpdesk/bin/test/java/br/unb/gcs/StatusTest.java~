@@ -1,0 +1,19 @@
+package br.unb.gcs;
+
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import org.junit.Test;
+import model.Status;
+
+public class StatusTest {
+	@Test
+	public void newStatus() {		
+		Status status = new Status(1,"Fechado");
+				
+		assertNotNull(status);
+		assertEquals(1, status.getId());
+		assertEquals("Fechado", status.getNome());
+
+	}
+}
