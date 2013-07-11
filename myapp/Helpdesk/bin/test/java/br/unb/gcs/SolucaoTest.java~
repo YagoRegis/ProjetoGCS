@@ -1,26 +1,24 @@
-package br.unb.gcs;
+package test.java.br.unb.gcs;
 
 
-import static org.junit.Assert.*;
-import br.unb.gcs.model.Chamado;
-import br.unb.gcs.model.Solucao;
-
-import org.joda.time.DateTime;
-import org.junit.Test;
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+import main.java.br.unb.gcs.model.Chamado;
+import main.java.br.unb.gcs.model.Solucao;
 
 public class SolucaoTest {
 
-	@Test
+	
 	public void newSolucao() {
 		
-		DateTime data = new DateTime();
+		String data = "21-09-2013";
 		Chamado chamado = new Chamado();
-		Solucao solucao = new Solucao(1,chamado,"Solucao um foi feita",data.plusDays(1));
+		Solucao solucao = new Solucao(1,chamado,"Solucao um foi feita",data);
 				
 		assertNotNull(solucao);
 		assertEquals(1, solucao.getId());
 		assertEquals("Solucao um foi feita", solucao.getDescricao());
-		assertEquals(new DateTime().getDayOfYear()+1, solucao.getData().getDayOfYear());
 	}
 
 }

@@ -1,14 +1,14 @@
-package br.unb.gcs;
+package test.java.br.unb.gcs;
 
-import static org.junit.Assert.*;
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
 
-import model.Usuario;
-
-import org.junit.Test;
+import main.java.br.unb.gcs.model.Usuario;
 
 public class UserTest {
 	
-	@Test
+	
 	public void newUser() {
 		Usuario usuario = new Usuario("lmatos","102030","Teste 123","teste@gmail.com","09/0000001");	
 		

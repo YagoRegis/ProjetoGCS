@@ -1,0 +1,60 @@
+package br.unb;
+
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+
+import main.java.br.unb.gcs.model.Chamado;
+import main.java.br.unb.gcs.model.Solucao;
+import main.java.br.unb.gcs.model.Status;
+import main.java.br.unb.gcs.model.TipoChamado;
+import main.java.br.unb.gcs.model.Usuario;
+
+/**
+ * Unit test for simple App.
+ */
+
+public class AppTest3 
+    extends TestCase
+{
+    /**
+     * Create the test case
+     *
+     * @param testName name of the test case
+     */
+    public AppTest2( String testName )
+    {
+        super( testName );
+    }
+
+    /**
+     * @return the suite of tests being tested
+     */
+    public static Test suite()
+    {
+        return new TestSuite( AppTest.class );
+    }
+
+    /**
+     * Rigourous Test :-)
+     */
+    public void testApp3()
+    {
+ 	        Chamado chamado = new Chamado();
+		Usuario solicitante = new Usuario("lmatos","102030","Luiz","luiz@gmail.com","0900300");
+		Usuario tecnico = new Usuario("pchaves","123456","Pedro","luiz@gmail.com","0101101");
+		Status status = new Status(1,"Fechado");
+		Solucao solucao = new Solucao(1,chamado,"Reparo no monitor","25-08-2013");
+		TipoChamado tipochamado = new TipoChamado(1,"Tipo Chamado");
+		
+		chamado.setId(1);
+		chamado.setDataInicial("25-07-2013");
+		chamado.setDataFinal("24-08-2013");
+		chamado.setDescricao("Chamado Test");
+		chamado.setSolicitante(solicitante);
+		chamado.setTecnico(tecnico);
+		chamado.setTipoChamado(tipochamado);
+		chamado.setLocalEquipamento("FGA LAB-I6");
+		chamado.setPatrimonio(2939934);
+    }
+}

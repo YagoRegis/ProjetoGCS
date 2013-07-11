@@ -1,13 +1,14 @@
-package br.unb.gcs;
+package test.java.br.unb.gcs;
 
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import org.junit.Test;
-import model.Status;
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+
+import main.java.br.unb.gcs.model.Status;
 
 public class StatusTest {
-	@Test
+	
 	public void newStatus() {		
 		Status status = new Status(1,"Fechado");
 				
